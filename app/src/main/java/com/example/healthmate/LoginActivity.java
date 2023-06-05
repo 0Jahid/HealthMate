@@ -2,6 +2,7 @@ package com.example.healthmate;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,10 +20,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        edUsername = findViewById(R.id.editTextUsername);
-        edPassword = findViewById(R.id.editTextLoginPassword);
-        btn = findViewById(R.id.buttonLogin);
-        tvRegister = findViewById(R.id.textViewNewUser);
+        edUsername = findViewById(R.id.editTextName);
+        edPassword = findViewById(R.id.editTextRegisterPassword);
+        btn = findViewById(R.id.buttonRegister);
+        tvRegister = findViewById(R.id.textViewExistingUser);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,6 +34,12 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+        tvRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
     }
