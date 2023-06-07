@@ -31,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
                 String password = edPassword.getText().toString();
                 if (username.length() == 0 || password.length() == 0) {
                     Toast.makeText(LoginActivity.this, "Please enter all fields", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
                 } else {
                     Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
                 }

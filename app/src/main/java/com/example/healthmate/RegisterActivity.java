@@ -41,10 +41,18 @@ public class RegisterActivity extends AppCompatActivity {
                 String confirmPassword = edConfirmPassword.getText().toString();
                 if (name.length() == 0 || username.length() == 0 || email.length() == 0 || password.length() == 0 || confirmPassword.length() == 0) {
                     Toast.makeText(RegisterActivity.this, "Please enter all fields", Toast.LENGTH_LONG).show();
-                } else if (!password.equals(confirmPassword)) {
-                    Toast.makeText(RegisterActivity.this, "Passwords do not match", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_LONG).show();
+                } else{
+                    if (password.compareTo(confirmPassword)==0) {
+                        if(isValid(password)){
+                            Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                        }
+                        else{
+                            Toast.makeText(RegisterActivity.this, "Password must contain at least 8 characters, 1 uppercase letter, 1 lowercase letter and 1 number", Toast.LENGTH_LONG).show();
+                        }
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
