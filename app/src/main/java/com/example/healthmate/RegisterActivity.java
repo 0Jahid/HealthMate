@@ -24,6 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
         edEmail = findViewById(R.id.editTextRegEmail);
         edPassword = findViewById(R.id.editTextRegisterPassword);
         edConfirmPassword = findViewById(R.id.editTextRegisterConfirmPassword);
+        tvExistingUser = findViewById(R.id.textViewExistingUser);
 
         tvExistingUser.setOnClickListener(new View.OnClickListener() {
             @Override
